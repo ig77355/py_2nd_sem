@@ -2,4 +2,4 @@ print('hello')
 
 print('hi')
 
-print('dziala?')
+print('dziala!')
