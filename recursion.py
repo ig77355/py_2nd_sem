@@ -5,45 +5,23 @@ def sum_space(folder):
     size = 0
     counter = 0
     for file in folder.iterdir():
+        # if the object is a file
         if file.is_file():
+            # calculating the size of a file
             size += file.stat().st_size
+            # calculating how many files are in a current folder
             counter += 1
+        # if the object is a folder
         elif file.is_dir():
+            # creating a tuple consisting of size and counter of files
+            # here the recursion is used, as sum_space function is used
             t_size, t_counter = sum_space(file)
             size += t_size
             counter += t_counter
     return size, counter
 
-
+# setting the path to the folder - going backward 2 times in the current file path
 path = Path('..')
 p_size, p_counter = sum_space(path)
-print("Total size is: " + str(p_size) + " bytes\r\nTotal number of files: " + str(p_counter))
-
-
-'''
-def sum_space(folder):
-    sum = 0
-    for file in folder.iterdir():
-        path = os.path.join(folder, file)
-        if os.path.isfile(folder):
-            sum += os.path.getsize(file)
-        else:
-            if os.path.isdir(file):
-                sum += sum_space(path)
-    return sum
-
-
-print("Total size is:" + str(sum_space(folder)) + "byte")
-
-
-def sum_space_loop(folder):
-    sum_size = 0
-    for dirpath, dirnames, filenames in os.walk(folder):
-        for file in filenames:
-            file_path = os.path.join(dirpath, file)
-            if os.path.isfile(file_path):
-                sum_size += os.path.getsize(file_path)
-    return sum_size
-my_folder = "../Python_Summer_2021_2/data"
-print("Total size is:" + str(sum_space_loop(my_folder)) + "byte")
-'''
+# dividing the above tuple's results into 2 separate numbers and sentences
+print("Total size: " + str(p_size) + " bytes\r\nTotal number of files: " + str(p_counter))
