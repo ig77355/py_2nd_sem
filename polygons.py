@@ -80,22 +80,20 @@ print('Perimeter of the equilateral triangle: ' + str(t1.calc_perimeter()))
 
 
 # Square
-class Square(Shape):
+class Square(Rectangle):
     def __init__(self, a):
-        # call constructor of superclass
-        super().__init__(a, 0)
-        self._a = a
+        # call constructor of superclass (parent)
+        super().__init__(a, a)
 
     # Surface
     def calc_surface(self):
-        return self._a ** 2
+        return super().calc_surface()
 
     # Perimeter
     def calc_perimeter(self):
         return 4 * self._a
 
 
-b = None
 s = Square(13)
 print('Surface of the square: ' + str(s.calc_surface()))
 print('Perimeter of the square: ' + str(s.calc_perimeter()))
