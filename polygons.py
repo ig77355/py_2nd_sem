@@ -57,6 +57,7 @@ print('Surface of the isosceles triangle: ' + str(t.calc_surface()))
 print('Perimeter of the isosceles triangle: ' + str(t.calc_perimeter()))
 
 
+# Equilateral triangle
 class EquilateralTriangle:
     def __init__(self, a):
         self._a = a
